@@ -53,7 +53,7 @@ local function record(event,...)
       local ok,guid=pcall(UnitGUID,unit)
       if ok and readable(guid) and type(guid)=="string" then
         local id=guid:match("^Creature%-%d+%-%d+%-%d+%-%d+%-(%d+)%-") or guid:match("^Vehicle%-%d+%-%d+%-%d+%-%d+%-(%d+)%-")
-        if id and #sample.npc<12 then sample.npc[id]=true end
+        if id then sample.npc[id]=true end
       end
     end
     if readable(spellID) and type(spellID)=="number" and spellID>0 and spellID<10000000 then sample.spell[spellID]=true end
