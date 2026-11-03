@@ -32,3 +32,14 @@ Download the `DreadwatchPTR/` directory from the repository, retaining the folde
 
 ## Next probes after baseline passes
 Implement opt-in, narrowly scoped API-signature probes and encounter event payload inspection only when allowed by the PTR's combat secrecy restrictions. Build a replay fixture from sanitized, permitted observations, then implement Dreadwatch encounter engine and warnings.
+
+
+## v0.2.0 targeted capability lab (2026-11-03)
+Source implementation committed; NOT yet tested on live client.
+- `/dwptr scan`: checks researched namespaces, no speculative event registration.
+- `/dwptr test combat`: opt-in in-memory spell-ID and creature GUID/NPC-ID observations from known spellcast events; never sends addon messages or stores combat payloads in SavedVariables.
+- `/dwptr report`: shows accessible spell/NPC IDs, restricted checks, and unverified boss/sync status.
+- `/dwptr events`: known-safe event counts; encounter events intentionally not registered.
+- `/dwptr marker test-one`: existing persistent marker retained.
+Open-world procedure: run scan; run test combat; fight a hostile NPC and cast spells; run report and events; capture any taint/Lua errors. Absence of an NPC ID in this opt-in sample does not imply that GUID APIs are unavailable.
+Dungeon boss testing is deferred until dungeon access becomes available. Encounter APIs remain namespace-presence only, NOT confirmed boss signals.
