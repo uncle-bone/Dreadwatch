@@ -1,0 +1,7 @@
+## Interface: 16001
+## Title: Dreadwatch PTR Diagnostics
+## Notes: Read-only Warcraft Forever API, event and persistence probe
+## Author: Uncle Bone
+## Version: 0.1.0-ptr
+## SavedVariables: DreadwatchPTRDB
+Core.lua
