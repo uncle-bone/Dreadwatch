@@ -36,3 +36,16 @@ Status: research baseline, **not live-client verified by Dreadwatch**. Updated 2
 SOURCE VERIFIED means demonstrated by cited source revision, **not** live verified on launch. INFERRED means plausible design consequence. UNRESOLVED means live evidence absent.
 
 Current Dreadwatch live verification: **UNRESOLVED**. No boss IDs, spell IDs or exact timers are asserted here.
+
+
+## PTR observations supplied by user (2026-11-03; build 70707)
+Evidence: copied live in-game /dwptr output, not automated CI. Version 1.60.1, interface 16001, WOW_PROJECT_ID=18.
+- LIVE VERIFIED: C_Secrets, C_EncounterEvents, C_EncounterTimeline, C_EncounterWarnings, C_ChatInfo, C_AddOnProfiler, C_Timer, C_UnitAuras, C_Spell namespace values are tables; C_EncounterInfo is nil.
+- LIVE VERIFIED: issecretvalue, issecrettable and canaccessvalue are functions. Individual protected values and their permitted uses are NOT verified.
+- LIVE VERIFIED: PLAYER_REGEN_DISABLED=1, PLAYER_REGEN_ENABLED=1, UNIT_SPELLCAST_START=7, UNIT_SPELLCAST_SUCCEEDED=11, UNIT_SPELLCAST_INTERRUPTED=2 after open-world combat.
+- LIVE VERIFIED: SavedVariables marker test-one persisted across /reload and full client restart; launchCount progressed from 9 to 10.
+- LIVE VERIFIED: v0.1.0 speculative pcall-based event registrations caused taint (taint.log showed Core.lua:37 probeEvents). User confirmed the protected-action popup ceased after conservative v0.1.1 test build.
+- UNVERIFIED: spell ID / NPC GUID field accessibility, secret-value behavior during combat, encounter event payloads, boss mechanics, addon messaging in instances, actual launch build.
+- SOURCE VERIFIED: FWoW-Research contains 35 instance journal files, 311 named catalog rows, 215 distinct encounter IDs and 24 matching DBM-Forever modules. These are not live mechanics.
+
+DreadwatchPTR v0.2.0 source introduces targeted, opt-in capability diagnostics, but this new version is NOT YET LIVE TESTED. No encounter event registration or network transmission is performed.
