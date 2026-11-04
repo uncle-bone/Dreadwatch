@@ -1,7 +1,0 @@
-## Interface: 16001
-## Title: Dreadwatch PTR Diagnostics
-## Notes: Conservative Warcraft Forever capability and event diagnostics
-## Author: Uncle Bone
-## Version: 0.2.0-ptr
-## SavedVariables: DreadwatchPTRDB
-Core.lua
